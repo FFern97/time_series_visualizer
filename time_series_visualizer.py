@@ -20,9 +20,11 @@ df = df_values
 def draw_line_plot():
     # Draw line plot
     
-    date_x = df['date']
-    values_y = df['values']
-    plt.plot(date_x, values_y)
+    plt.plot(df.index, df['values'])
+    plt.title('Daily freeCodeCamp Forum Page Views 5/2016-12/2019.')
+    plt.xlabel('Date')
+    plt.ylabel('Page Views')
+
     plt.show()
     
 
