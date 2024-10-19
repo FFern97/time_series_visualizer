@@ -19,8 +19,12 @@ df = df_values
 
 def draw_line_plot():
     # Draw line plot
-
-
+    
+    date_x = df['date']
+    values_y = df['values']
+    plt.plot(date_x, values_y)
+    plt.show()
+    
 
 
 
