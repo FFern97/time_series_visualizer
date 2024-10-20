@@ -9,7 +9,7 @@ df = pd.read_csv('fcc-forum-pageviews.csv', parse_dates=['date'], index_col('dat
 
 
 # Clean data
-df_values = df[
+df = df[
 (df['values'] >= df['values'].quantile(0.025)) &
 (df['values'] <= df['values'].quantile(0.975))
 ]
