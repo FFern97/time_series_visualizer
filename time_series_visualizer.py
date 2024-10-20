@@ -61,7 +61,7 @@ def draw_box_plot():
 
     # Draw box plots (using Seaborn)
 
-    sns.boxplot(x=year['Year']) 
+    fig = sns.boxplot(df.year(x = 'Year', y = 'Page Views') df.month(x = 'Month', y = 'Page Views')) 
 
 
 
