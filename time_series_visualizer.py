@@ -14,8 +14,6 @@ df_values = df[
 (df['values'] <= df['values'].quantile(0.975))
 ]
 
-df = df_values 
-
 
 def draw_line_plot():
     # Draw line plot
@@ -36,11 +34,17 @@ def draw_line_plot():
 
 def draw_bar_plot():
     # Copy and modify data for monthly bar plot
-    df_bar = None
 
+    df['month'] = df.index.month
+    df['year'] = df.index.year
+    df_bar = df.groupby(['year', 'month'])['value'].mean()
+    df_bar = df.unstack()
+    
+   
     # Draw bar plot
 
-
+    fig = df.plot.bar(legend=True, xlabel='Years', ylabel='Average Page Views').figure
+    plt.legend (['Januray', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'])    
 
 
 
@@ -57,7 +61,7 @@ def draw_box_plot():
 
     # Draw box plots (using Seaborn)
 
-
+    sns.boxplot(x=year['Year']) 
 
 
 
