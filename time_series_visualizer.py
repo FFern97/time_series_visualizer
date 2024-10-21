@@ -23,7 +23,7 @@ def draw_line_plot():
    ax.set_xlabel("Date")
    ax.set_ylabel("Page Views")
 
-#Save the image    
+    # Save image and return fig (don't change this part)
     fig.savefig("line_plot.png")
     return fig
 
@@ -55,9 +55,8 @@ def draw_box_plot():
     df_box = df_box.sort_values("month_num")
     
     fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(12, 6)) 
-    axes[0]= sns.boxplot(x=df_box["year"], y = df_box["value"], ax=axes[0]) 
-
     
+    axes[0]= sns.boxplot(x=df_box["year"], y = df_box["value"], ax=axes[0]) 
     axes[0].set_title("Year-wise Box Plot (Trend)")
     axes[0].set_xlabel("Year")
     axes[0].set_ylabel("Page Views")
