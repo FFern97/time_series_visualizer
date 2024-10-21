@@ -57,11 +57,12 @@ def draw_box_plot():
     fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(12, 6)) 
     
     axes[0]= sns.boxplot(x=df_box["year"], y = df_box["value"], ax=axes[0]) 
+    axes[1] = sns.boxplot(x= df_box["month"], y=df["value"], order=["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], ax=axes[1])
+    
     axes[0].set_title("Year-wise Box Plot (Trend)")
     axes[0].set_xlabel("Year")
     axes[0].set_ylabel("Page Views")
     
-    axes[1] = sns.boxplot(x= df_box["month"], y=df["value"], order=["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], ax=axes[1])
     axes[1].set_title("Month-wise Box Plot (Seasonality)")
     axes[1].set_xlabel("Month")
     axes[1].set_ylabel("Page Views")
