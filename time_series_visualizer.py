@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 from pandas.plotting import register_matplotlib_converters
+import numpy as np
 register_matplotlib_converters()
 
 # Import data (Make sure to parse dates. Consider setting index column to 'date'.)
@@ -29,7 +30,7 @@ def draw_bar_plot():
     # Copy and modify data for monthly bar plot
     df_bar=df.copy(deep=True)
     df_bar['year'] = df_bar.index.year
-    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
+    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     df_bar['month'] = df_bar.index.month_name()
     df_bar['month'] = pd.Categorical(df_bar['month'],categories=months)
     df_bar_pivot = pd.pivot_table(df_bar, values= "value", index="year", columns="month", aggfunc=np.mean)
@@ -67,6 +68,10 @@ def draw_box_plot():
     plt.title('Month-wise Box Plot (Seasonality)')
     plt.xlabel('Month')
     plt.ylabel('Page Views')
+    
+    # Save image and return fig (don't change this part)
+    fig.savefig("box_plot.png")
+    return fig
     
     # Save image and return fig (don't change this part)
     fig.savefig("box_plot.png")
