@@ -64,14 +64,10 @@ def draw_box_plot():
     plt.xlabel('Year')
     plt.ylabel('Page Views')
     plt.subplot(1,2,2)
-    sns.subplot(df_box['month'], y=df_box['value']).get_figure()
+    sns.boxplot(x=df_box['month'], y=df_box['value']).get_figure()
     plt.title('Month-wise Box Plot (Seasonality)')
     plt.xlabel('Month')
     plt.ylabel('Page Views')
-    
-    # Save image and return fig (don't change this part)
-    fig.savefig("box_plot.png")
-    return fig
     
     # Save image and return fig (don't change this part)
     fig.savefig("box_plot.png")
